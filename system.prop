@@ -1,0 +1,4 @@
+#
+# system.prop for twrp emulated device
+#
+ro.kernel.qemu=1
