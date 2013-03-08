@@ -11,6 +11,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := omap4
 
 # Architecture
+TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
