@@ -24,6 +24,7 @@ gzip -dc ../ramdisk.img | cpio -i
 
 Modify the init.rc to mount your mmc based partitions instead of the mtd ones by locating the line in init.rc that says "on fs" and modifying it to look like this:
 
+# Changes for init.rc
  on fs
  # mount emmc partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
