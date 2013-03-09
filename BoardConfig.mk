@@ -45,3 +45,9 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_HAS_NO_BOOT_PARTITION := true
 TWRP_CUSTOM_KEYBOARD := ../../../device/emulator/twrp/recovery/hardwarekeyboard.cpp
 
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+
