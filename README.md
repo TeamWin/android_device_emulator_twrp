@@ -14,7 +14,7 @@ To boot this in the emulator, build your recoveryimage. With the Android emulato
 
 After the first boot, wait for ADB to start up, then: adb shell /sbin/create_partitions.sh
 
-This script will partition the sdcard with a boot, recovery, system, cache, data, and removable sdcard partition. It's designed to work with a 1500MiB sdcard. If you want a different sdcard size then you will need to modify the script in the cm_folder/device/emulator/twrp/recovery/root/sbin/create_partitions.sh location to suit your needs. The script will also copy the existing system files from the MTD system partition to the new emmc-based partition.
+This script will partition the sdcard with a boot, recovery, system, cache, data, and removable sdcard partition. It's designed to work with a 1500MiB sdcard. If you want a different sdcard size then you will need to modify the script in the cm_folder/device/emulator/twrp/recovery/root/sbin/create_partitions.sh location to suit your needs. The script will also mount the old MTD system device to /system so that you can make a backup of the system image to restore to your new mmc-based system.
 
 If you want to make the emulator boot up using the emmc partitions, you will need to modify the ramdisk.img. Locate the ramdisk.img in your android-sdk/system-images/android##/armeabi-v7a/ folder. To unpack it:
 
