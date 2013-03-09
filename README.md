@@ -8,7 +8,9 @@ This branch of the device configs is intended to give you a more modern emmc typ
 
 To boot this in the emulator, build your recoveryimage. With the Android emulator make a new device based on a Galaxy Nexus. Allow it to have a hardware keyboard and a sdcard. Give it a name like TWRP. Then from your android-sdk/tools folder run the following command:
 
+```
 ./emulator -avd TWRP -ramdisk ~/cm_folder/out/target/product/twrp/ramdisk-recovery.img -kernel ~/cm_folder/device/emulator/twrp/goldfish_2.6_kernel
+```
 
 After the first boot, wait for ADB to start up, then: adb shell /sbin/create_partitions.sh
 
@@ -16,17 +18,17 @@ This script will partition the sdcard with a boot, recovery, system, cache, data
 
 If you want to make the emulator boot up using the emmc partitions, you will need to modify the ramdisk.img. Locate the ramdisk.img in your android-sdk/system-images/android##/armeabi-v7a/ folder. To unpack it:
 
+```
 mkdir ramdisk
-
 cd ramdisk
-
 gzip -dc ../ramdisk.img | cpio -i
+```
 
 Modify the init.rc to mount your mmc based partitions instead of the mtd ones by locating the line in init.rc that says "on fs" and modifying it to look like this:
 
-# Changes for init.rc
- on fs
- # mount emmc partitions
+```
+on fs
+# mount emmc partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     # mount yaffs2 mtd@system /system
     # mount yaffs2 mtd@system /system ro remount
@@ -35,10 +37,13 @@ Modify the init.rc to mount your mmc based partitions instead of the mtd ones by
     mount ext4 /dev/block/mmcblk0p3 /system wait ro
     mount ext4 /dev/block/mmcblk0p5 /data wait noatime nosuid nodev
     mount ext4 /dev/block/mmcblk0p4 /cache wait noatime nosuid nodev
+```
 
 Save the changes and repack the ramdisk image as follows:
 
+```
 find . | cpio -o -H newc > gzip > ../newramdisk.img
+```
 
 Boot the emulator using -ramdisk path/to/newramdisk.img -kernel path/to/goldfish_2.6_kernel
 
