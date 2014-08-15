@@ -18,7 +18,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    device/emulator/twrp/recovery/root/sbin/network_start.sh:recovery/root/sbin/network_start.sh
+    device/emulator/twrp/recovery/root/sbin/network_start.sh:recovery/root/sbin/network_start.sh \
+    device/emulator/twrp/recovery/root/sbin/create_partitions.sh:recovery/root/sbin/create_partitions.sh
 
 $(call inherit-product, build/target/product/full.mk)
 
