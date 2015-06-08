@@ -39,7 +39,6 @@ TARGET_RECOVERY_INITRC := device/emulator/twrp/recovery/init.rc
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP specific build flags
-DEVICE_RESOLUTION := 720x1280
+TW_THEME := portrait_mdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TWRP_CUSTOM_KEYBOARD := ../../../device/emulator/twrp/recovery/hardwarekeyboard.cpp
 RECOVERY_SDCARD_ON_DATA := true

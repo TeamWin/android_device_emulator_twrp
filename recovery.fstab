@@ -2,6 +2,7 @@
 
 /external_sd  vfat      /dev/block/mmcblk0p4     /dev/block/mmcblk0
 /system       ext4      /dev/block/mtdblock0
+/system_image emmc      /dev/block/mtdblock0     flags=backup=1
 /data         ext4      /dev/block/mtdblock1     length=-16384
 /cache        ext4      /dev/block/mmcblk0p3
 /boot         emmc      /dev/block/mmcblk0p1
