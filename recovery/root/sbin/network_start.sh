@@ -1,8 +1,4 @@
 #!/sbin/sh
-# this was kanged from /system/etc/init.goldfish.sh
-# we run it in the init.rc and it is required to get
-# the network running in order for adb to work in
-# emulator
 
 # Setup networking when boot starts
 ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up
@@ -70,4 +66,3 @@ case "$my_ip" in
     *) ifconfig eth1 "$my_ip" netmask 255.255.255.0 up
     ;;
 esac
-

@@ -1,8 +1,8 @@
 # mount point	fstype		device
 
-/external_sd  vfat      /dev/block/mmcblk0p4     /dev/block/mmcblk0
+/external_sd  vfat      /dev/block/mmcblk0p3     /dev/block/mmcblk0
 /system       ext4      /dev/block/mtdblock0
 /data         ext4      /dev/block/mtdblock1     length=-16384
-/cache        ext4      /dev/block/mmcblk0p3
+/cache        ext4      /dev/block/mtdblock2
 /boot         emmc      /dev/block/mmcblk0p1
 /recovery     emmc      /dev/block/mmcblk0p2
