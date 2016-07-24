@@ -13,19 +13,13 @@ parted -s /dev/block/mmcblk0 mklabel gpt
 parted -s /dev/block/mmcblk0 mkpart boot ext2 0 8MB
 # 8MB recovery partition
 parted -s /dev/block/mmcblk0 mkpart recovery ext2 8MB 16MB
-# 34 MB cache partition
-parted -s /dev/block/mmcblk0 mkpart cache ext2 16MB 50MB
 # sdcard partition
-parted -s /dev/block/mmcblk0 mkpart sdcard ext4 50MB 1536MB
-
-echo "Formatting cache..."
-# Format external_sd as vfat
-make_ext4fs -S /file_contexts -a /cache /dev/block/mmcblk0p3
+parted -s /dev/block/mmcblk0 mkpart sdcard ext4 16MB 2048MB
 
 echo "Formatting external_sd..."
 # Format external_sd as vfat
-mkdosfs /dev/block/mmcblk0p4
+mkdosfs /dev/block/mmcblk0p3
 
 echo "Mounting new sdcard..."
-mount -t vfat /dev/block/mmcblk0p4 /external_sd
+mount -t vfat /dev/block/mmcblk0p3 /external_sd
 echo "Done!"

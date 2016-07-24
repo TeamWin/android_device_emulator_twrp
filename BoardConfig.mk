@@ -35,10 +35,13 @@ TARGET_PREBUILT_KERNEL := device/emulator/twrp/kernAl
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 
-TARGET_RECOVERY_INITRC := device/emulator/twrp/recovery/init.rc
+#TARGET_RECOVERY_INITRC := device/emulator/twrp/recovery/init.rc
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP specific build flags
 TW_THEME := portrait_mdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
+TW_EXCLUDE_MTP := true
+# Dirty workaround to prevent errors related to the brightness file
+TW_BRIGHTNESS_PATH := "/brightness"

@@ -1,0 +1,5 @@
+#this starts the network needed to get adb working in the emulator
+service network_start /sbin/network_start.sh
+    user root
+    oneshot
+    default
